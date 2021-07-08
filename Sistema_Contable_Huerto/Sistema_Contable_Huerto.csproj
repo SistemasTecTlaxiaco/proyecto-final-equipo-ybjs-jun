@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33B53A61-8857-4FDB-BEEA-71EE3DA0388F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Sistema_Contable_Huerto</RootNamespace>
+    <AssemblyName>Sistema_Contable_Huerto</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AreaBLL.cs" />
+    <Compile Include="BLL\EmpleadosBLL.cs" />
+    <Compile Include="DAL\AreaDAL.cs" />
+    <Compile Include="DAL\ConexionDAL.cs" />
+    <Compile Include="DAL\EmpleadoDAL.cs" />
+    <Compile Include="PL\frmRecursosHumanos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\frmRecursosHumanos.Designer.cs">
+      <DependentUpon>frmRecursosHumanos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\frmArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\frmArea.Designer.cs">
+      <DependentUpon>frmArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\frmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\frmEmpleado.Designer.cs">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\frmRecursosHumanos.resx">
+      <DependentUpon>frmRecursosHumanos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\frmArea.resx">
+      <DependentUpon>frmArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\frmEmpleado.resx">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1078269892-170x170.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\285657_floppy_guardar_save_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\299045_sign_error_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5983582.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\720970.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3460992.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6552699.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
