@@ -16,7 +16,7 @@ namespace Sistema_Contable_Huerto.BLL
         public string ape2_Empleado { get; set; }
         public string rfc_Empleado { get; set; }
         public int area_Empleado { get; set; }
-        public string tipo_Empleado { get; set; }
+        public int tipo_Empleado { get; set; }
         public DateTimePicker nacimiento_Empleado { get; set; }
         public DateTimePicker ingreso_Empleado { get; set; }
         public string salario_Empleado { get; set; }

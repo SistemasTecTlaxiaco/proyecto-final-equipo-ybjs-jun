@@ -215,6 +215,7 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCancelar
             // 
@@ -226,6 +227,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox1
             // 
@@ -243,6 +245,7 @@
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(550, 166);
             this.dgvEmpleados.TabIndex = 0;
+            this.dgvEmpleados.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 
             // txtNom2Empleado
             // 
@@ -279,6 +282,7 @@
             // 
             // dtpNaciEmp
             // 
+            this.dtpNaciEmp.CustomFormat = "yyyy-MM-dd";
             this.dtpNaciEmp.Location = new System.Drawing.Point(413, 166);
             this.dtpNaciEmp.Name = "dtpNaciEmp";
             this.dtpNaciEmp.Size = new System.Drawing.Size(200, 20);
@@ -286,6 +290,7 @@
             // 
             // dtpicIngresoEmp
             // 
+            this.dtpicIngresoEmp.CustomFormat = "yyyy-MM-dd";
             this.dtpicIngresoEmp.Location = new System.Drawing.Point(229, 206);
             this.dtpicIngresoEmp.Name = "dtpicIngresoEmp";
             this.dtpicIngresoEmp.Size = new System.Drawing.Size(224, 20);

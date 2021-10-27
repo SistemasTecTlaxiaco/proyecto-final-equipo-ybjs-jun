@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-//Referencia para XAMPP
 using MySql.Data.MySqlClient;
 using Sistema_Contable_Huerto.DAL;
 using Sistema_Contable_Huerto.BLL;
@@ -26,6 +25,24 @@ namespace Sistema_Contable_Huerto
             InitializeComponent();
             objEmpleadoDAL = new EmpleadoDAL();
             llenar_Grid();
+            limpiar_Entradas();
+        }
+
+        public void limpiar_Entradas()
+        {
+            txtIDEmp.Text = "";
+            txtNom1Empleado.Text = "";
+            txtNom2Empleado.Text = "";
+            txtApe1Empleado.Text = "";
+            txtApe2Empleado.Text = "";
+            txtRFCEmpleado.Text = "";
+            txtSalarioEmpleado.Text = "";
+
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnExaminar.Enabled = true;
+            btnModificar.Enabled = false;
         }
 
         private EmpleadosBLL obtenerDatos()
@@ -39,7 +56,9 @@ namespace Sistema_Contable_Huerto
             objEmpleadosBLL.ape1_Empleado = txtApe1Empleado.Text;
             objEmpleadosBLL.ape2_Empleado = txtApe2Empleado.Text;
             objEmpleadosBLL.rfc_Empleado = txtRFCEmpleado.Text;
-            objEmpleadosBLL.tipo_Empleado = cmbTipoEmpleado.Text;
+
+            int id_TipoEmp = 0; int.TryParse(cmbTipoEmpleado.SelectedValue.ToString(), out id_TipoEmp);
+            objEmpleadosBLL.tipo_Empleado = id_TipoEmp;
 
             int id_AreaEmp = 0; int.TryParse(cmbAreaEmpleado.SelectedValue.ToString(), out id_AreaEmp);
             objEmpleadosBLL.area_Empleado = id_AreaEmp;
@@ -64,6 +83,10 @@ namespace Sistema_Contable_Huerto
             cmbAreaEmpleado.DataSource = objAreaDAL.Mostrar_Area().Tables[0];
             cmbAreaEmpleado.DisplayMember = "area_Empleado";
             cmbAreaEmpleado.ValueMember = "id_Area_Empleado";
+            TipoEmpDAL objTipoEmpDAL = new TipoEmpDAL();
+            cmbTipoEmpleado.DataSource = objTipoEmpDAL.Mostrar_Tipo().Tables[0];
+            cmbTipoEmpleado.DisplayMember = "tipo_Empleado";
+            cmbTipoEmpleado.ValueMember = "id_Tipo_Empleado";
         }
 
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -85,7 +108,48 @@ namespace Sistema_Contable_Huerto
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            obtenerDatos();
+            objEmpleadoDAL.Agregar(obtenerDatos());
+            llenar_Grid();
+            limpiar_Entradas();
+        }
+
+
+        private void Seleccionar(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int indice = e.RowIndex;
+            dgvEmpleados.ClearSelection();
+
+            if (indice >= 0)
+            {
+                txtIDEmp.Text = dgvEmpleados.Rows[indice].Cells[0].Value.ToString();
+                txtNom1Empleado.Text = dgvEmpleados.Rows[indice].Cells[1].Value.ToString();
+                txtNom2Empleado.Text = dgvEmpleados.Rows[indice].Cells[2].Value.ToString();
+                txtApe1Empleado.Text = dgvEmpleados.Rows[indice].Cells[3].Value.ToString();
+                txtApe2Empleado.Text = dgvEmpleados.Rows[indice].Cells[4].Value.ToString();
+                txtRFCEmpleado.Text = dgvEmpleados.Rows[indice].Cells[5].Value.ToString();
+                cmbTipoEmpleado.Text = dgvEmpleados.Rows[indice].Cells[6].Value.ToString();
+                cmbAreaEmpleado.Text = dgvEmpleados.Rows[indice].Cells[7].Value.ToString();
+                dtpNaciEmp.Text = dgvEmpleados.Rows[indice].Cells[8].Value.ToString();
+                dtpicIngresoEmp.Text = dgvEmpleados.Rows[indice].Cells[9].Value.ToString();
+                txtSalarioEmpleado.Text = dgvEmpleados.Rows[indice].Cells[10].Value.ToString();
+                //picFoto.AccessibilityObject.Name = dgvEmpleados.Rows[indice].Cells[11].Value.ToString();
+
+                btnAgregar.Enabled = false;
+                btnBorrar.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnExaminar.Enabled = false;
+                btnModificar.Enabled = true;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiar_Entradas();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -47,8 +47,7 @@ namespace Sistema_Contable_Huerto
             //Utilizamos el método de recuperación
             oAreaDAL.Agregar(RecuperarInformacion());
 
-            MessageBox.Show("Registro Agregado ... ");
-
+            //MessageBox.Show("Registro Agregado ... ");
             llenar_Grid();
         }
 
@@ -85,7 +84,7 @@ namespace Sistema_Contable_Huerto
         private void btnBorrarA_Click(object sender, EventArgs e)
         {
             oAreaDAL.Eliminar(RecuperarInformacion());
-            MessageBox.Show("Registro Borrado ... ");
+            //MessageBox.Show("Registro Borrado ... ");
             llenar_Grid();
             limpiar_Entradas();
         }
@@ -93,7 +92,7 @@ namespace Sistema_Contable_Huerto
         private void btnModificarA_Click(object sender, EventArgs e)
         {
             oAreaDAL.Modificar(RecuperarInformacion());
-            MessageBox.Show("Registro Modificado ... ");
+            //MessageBox.Show("Registro Modificado ... ");
             llenar_Grid();
             limpiar_Entradas();
         }
@@ -101,6 +100,11 @@ namespace Sistema_Contable_Huerto
         private void btnCancelarA_Click(object sender, EventArgs e)
         {
             limpiar_Entradas();
+        }
+
+        private void frmArea_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

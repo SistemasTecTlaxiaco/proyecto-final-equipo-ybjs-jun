@@ -148,6 +148,7 @@
             this.Controls.Add(this.txtIdArea);
             this.Name = "frmArea";
             this.Text = "Área del Empleado";
+            this.Load += new System.EventHandler(this.frmArea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

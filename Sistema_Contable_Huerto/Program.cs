@@ -16,7 +16,7 @@ namespace Sistema_Contable_Huerto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRecursosHumanos());
+            Application.Run(new frmEmpleado());
         }
     }
 }
